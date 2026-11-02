@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 
 import './App.css'
 
-
+const SIGNALING_URL =
+  import.meta.env.VITE_SIGNALING_URL ||
+  `ws://${window.location.hostname}:3001`
 
 type Screen = 'home' | 'send' | 'receive'
 type SenderStep = 'connect' | 'files' | 'success'
@@ -450,7 +452,7 @@ function App() {
 
 
 
-    const socket = new WebSocket(`ws://${window.location.hostname}:3001`)
+    const socket = new WebSocket(SIGNALING_URL)
 
     socketRef.current = socket
 
