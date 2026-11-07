@@ -1883,6 +1883,7 @@ function App() {
                     value={enteredCode}
                     onChange={(event) => {
                       setEnteredCode(event.target.value.replace(/\D/g, '').slice(0, 6))
+                      setConnectionStatus('')
                       setError('')
                     }}
                   />
